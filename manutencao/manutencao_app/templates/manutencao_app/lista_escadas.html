@@ -1,0 +1,9 @@
+<h1>Lista de Escadas</h1>
+
+<ul>
+  {% for escada in escadas %}
+    <li>
+      {{ escada.codigo }} - {{ escada.status }}
+    </li>
+  {% endfor %}
+</ul>
