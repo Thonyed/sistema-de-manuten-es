@@ -1,0 +1,14 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'manutencao_app/style.css' %}">
+
+<div class="container">
+    <h1>Criar Escada</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+    </form>
+
+    <a href="{% url 'lista_escadas' %}" class="botao">Voltar</a>
+</div>

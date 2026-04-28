@@ -1,0 +1,13 @@
+<h1>Detalhes da Escada</h1>
+
+<p><strong>Código:</strong> {{ escada.codigo }}</p>
+<p><strong>Data:</strong> {{ escada.data_envio }}</p>
+<p><strong>Altura:</strong> {{ escada.altura }}m</p>
+<p><strong>Problema:</strong> {{ escada.problema }}</p>
+<a href="{% url 'concluir_escada' escada.id %}">
+    Concluir manutenção
+</a>
+
+<br>
+
+<a href="{% url 'lista_escadas' %}">Voltar</a>

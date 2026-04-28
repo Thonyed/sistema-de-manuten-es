@@ -4,8 +4,9 @@ from django.db import models
 
 class Escada(models.Model):
     codigo = models.CharField(max_length=20)
-    setor_origem = models.CharField(max_length=20)
     data_envio = models.DateField()
+    altura = models.IntegerField(default=0)
+    problema = models.CharField(max_length=100)
 
     STATUS_CHOICE = [
         ('pendente', 'Pendente'),

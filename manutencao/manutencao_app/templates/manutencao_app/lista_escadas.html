@@ -1,9 +1,20 @@
-<h1>Lista de Escadas</h1>
+{% load static %}
+<link rel="stylesheet" href="{% static 'manutencao_app/style.css' %}">
 
-<ul>
-  {% for escada in escadas %}
-    <li>
-      {{ escada.codigo }} - {{ escada.status }}
-    </li>
-  {% endfor %}
-</ul>
+<div class="container">
+    <h1>Lista de Escadas</h1>
+
+    <a href="{% url 'criar_escada' %}" class="botao">Nova Escada</a>
+
+    <ul>
+        {% for escada in escadas %}
+            <li>
+    <a href="{% url 'detalhe_escada' escada.id %}">
+        ID: {{ escada.codigo }} - {{escada.data_envio}} - {{ escada.altura }}m - {{escada.get_status_display}}
+    </a>
+</li>
+        {% endfor %}
+
+
+    </ul>
+</div>
