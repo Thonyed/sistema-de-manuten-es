@@ -1,7 +1,7 @@
-from django import forms
+from rest_framework import serializers
 from .models import Escada
 
-class EscadaForm(forms.ModelForm):
+class EscadaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Escada
         fields = '__all__'

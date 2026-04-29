@@ -1,14 +1,46 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'manutencao_app/style.css' %}">
 
-<div class="container">
-    <h1>Criar Escada</h1>
+<div class="topo">
+    <h1>🔧 Nova Escada</h1>
+    <p>Cadastre uma nova manutenção</p>
+</div>
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Salvar</button>
-    </form>
+<div class="form-container">
+    <div class="card-form">
+        <h2>Cadastrar Escada</h2>
 
-    <a href="{% url 'lista_escadas' %}" class="botao">Voltar</a>
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="campo">
+                <label>Código:</label>
+                {{ form.codigo }}
+            </div>
+
+            <div class="campo">
+                <label>Data de envio:</label>
+                {{ form.data_envio }}
+            </div>
+
+            <div class="campo">
+                <label>Altura (m):</label>
+                {{ form.altura }}
+            </div>
+
+            <div class="campo">
+                <label>Problema:</label>
+                <textarea placeholder="Descreva o problema da escada">{{ form.problema.value|default_if_none:'' }}</textarea>
+            </div>
+
+            <div class="campo">
+                <label>Status:</label>
+                {{ form.status }}
+            </div>
+
+            <button type="submit" class="botao">Salvar</button>
+        </form>
+
+        <a href="{% url 'home' %}" class="voltar">← Voltar</a>
+    </div>
 </div>

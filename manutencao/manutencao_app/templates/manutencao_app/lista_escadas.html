@@ -1,20 +1,36 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'manutencao_app/style.css' %}">
 
-<div class="container">
-    <h1>Lista de Escadas</h1>
+<div class="topo">
+    <h1>🪜 Lista de Escadas</h1>
+    <p>Acompanhe todas as manutenções</p>
+</div>
 
-    <a href="{% url 'criar_escada' %}" class="botao">Nova Escada</a>
+<div class="container-cards">
 
-    <ul>
-        {% for escada in escadas %}
-            <li>
-    <a href="{% url 'detalhe_escada' escada.id %}">
-        ID: {{ escada.codigo }} - {{escada.data_envio}} - {{ escada.altura }}m - {{escada.get_status_display}}
+    <a href="{% url 'criar_escada' %}" class="botao-nova">
+        + Nova Escada
     </a>
-</li>
+
+    <div class="cards">
+        {% for escada in escadas %}
+            <a href="{% url 'detalhe_escada' escada.id %}" class="card">
+
+                <h3>ID: {{ escada.codigo }}</h3>
+
+                <p><strong>Data:</strong> {{ escada.data_envio }}</p>
+                <p><strong>Altura:</strong> {{ escada.altura }}m</p>
+
+                <span class="status {{ escada.status }}">
+                    {{ escada.get_status_display }}
+                </span>
+
+            </a>
+        {% empty %}
+            <p>Nenhuma escada cadastrada.</p>
         {% endfor %}
+    </div>
 
+    <a href="{% url 'home' %}" class="voltar">← Voltar</a>
 
-    </ul>
 </div>

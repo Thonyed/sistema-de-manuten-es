@@ -1,13 +1,22 @@
 # Create your views here.
-
-from django.shortcuts import render, redirect
 from .models import Escada
-from .forms import EscadaForm 
+from .forms import EscadaForm
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .serializers import EscadaSerializer 
 from django.shortcuts import render, redirect, get_object_or_404
+
 
 def lista_escadas(request):
     escadas = Escada.objects.all()
     return render(request, 'manutencao_app/lista_escadas.html', {'escadas': escadas})
+
+
+@api_view(['GET'])
+def api_lista_escadas(request):
+    escadas = Escada.objects.all()
+    serializer = EscadaSerializer(escadas, many=True)
+    return Response(serializer.data)
     
 def criar_escada(request):
     if request.method == 'POST':
@@ -29,3 +38,6 @@ def concluir_escada (request, id):
     escada.status = 'concluida'
     escada.save()
     return redirect('detalhe_escada', escada.id)
+
+def home(request):
+    return render(request, 'manutencao_app/home.html')

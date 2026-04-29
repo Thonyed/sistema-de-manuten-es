@@ -14,7 +14,7 @@ class Escada(models.Model):
         ('concluida', 'Concluída'),
     ]
 
-    status = models.CharField(max_length=20, choices=STATUS_CHOICE, default='pedente')
+    status = models.CharField(max_length=20, choices=STATUS_CHOICE, default='pendente')
 
     def __str__(self):
         return self.codigo

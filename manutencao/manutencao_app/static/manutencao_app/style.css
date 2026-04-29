@@ -1,66 +1,218 @@
 /* Reset básico */
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f9;
-    margin: 0;
-    padding: 20px;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .topo {
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .lista {
+            text-align: center;
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .lista li {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .botao-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+        }
+
+        .botao {
+            padding: 20px 40px;
+            font-size: 20px;
+            border-radius: 10px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .botao:hover {
+            transform: scale(1.1);
+        }
+
+        .form-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
 }
 
-/* Título */
-h1 {
-    color: #333;
-    text-align: center;
-}
-
-/* Container geral */
-.container {
-    max-width: 600px;
-    margin: 0 auto;
+.card-form {
     background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 30px;
+    border-radius: 15px;
+    width: 400px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Lista */
-ul {
-    list-style: none;
-    padding: 0;
+.card-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-li {
-    background: #e9ecef;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-/* Botões */
-button, a.botao {
-    display: inline-block;
-    padding: 10px 15px;
-    margin-top: 10px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover, a.botao:hover {
-    background-color: #0056b3;
-}
-
-/* Formulário */
-form {
+.campo {
+    margin-bottom: 15px;
     display: flex;
     flex-direction: column;
 }
 
-input, select {
-    padding: 8px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+.campo label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    padding: 10px;
+    border-radius: 8px;
     border: 1px solid #ccc;
+}
+
+.botao {
+    width: 100%;
+    padding: 12px;
+    background-color: #3b6edc;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.botao:hover {
+    background-color: #2f5bc0;
+}
+
+.voltar {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    text-decoration: none;
+}
+
+.container-cards {
+    padding: 30px;
+}
+
+.botao-nova {
+    display: inline-block;
+    margin-bottom: 20px;
+    background-color: #3b6edc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.botao-nova:hover {
+    background-color: #2f5bc0;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-decoration: none;
+    color: black;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.status {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* cores por status */
+.status.pendente {
+    background-color: #f1c40f;
+}
+
+.status.em_manutencao {
+    background-color: #3498db;
+    color: white;
+}
+
+.status.concluida {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.voltar {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2f6fed;
+    color: white;
+    cursor: pointer;
+    max-width: 25%;
+    justify-self: center;
+}
+
+.container-detalhe {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.card-detalhe {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 400px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+.card-detalhe h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.botoes {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.botao.concluir {
+    background-color: #2ecc71;
+}
+
+.botao.concluir:hover {
+    background-color: #27ae60;
+}
+
+.botao.voltar {
+    background-color:#2f6fed;
+}
+
+.botao.voltar:hover {
+    background-color: #147092;
 }

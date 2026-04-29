@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+}
+
+/* topo */
+.topo {
+    background-color: #1f2a3a;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.topo h1 {
+    margin: 0;
+}
+
+.topo p {
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+/* container */
+.container {
+    padding: 40px;
+}
+
+/* título */
+.container h2 {
+    margin-bottom: 30px;
+    justify-self: center;
+}
+
+/* cards */
+.cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* card individual */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    width: 300px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* botão */
+.card button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2f6fed;
+    color: white;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: #1d4ed8;
+}

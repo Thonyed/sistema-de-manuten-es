@@ -1,13 +1,42 @@
-<h1>Detalhes da Escada</h1>
+{% load static %}
+<link rel="stylesheet" href="{% static 'manutencao_app/style.css' %}">
 
-<p><strong>Código:</strong> {{ escada.codigo }}</p>
-<p><strong>Data:</strong> {{ escada.data_envio }}</p>
-<p><strong>Altura:</strong> {{ escada.altura }}m</p>
-<p><strong>Problema:</strong> {{ escada.problema }}</p>
-<a href="{% url 'concluir_escada' escada.id %}">
-    Concluir manutenção
-</a>
+<div class="topo">
+    <h1>🔍 Detalhes da Escada</h1>
+    <p>Informações da manutenção</p>
+</div>
 
-<br>
+<div class="container-detalhe">
 
-<a href="{% url 'lista_escadas' %}">Voltar</a>
+    <div class="card-detalhe">
+
+        <h2>{{ escada.codigo }}</h2>
+
+        <p><strong>Data:</strong> {{ escada.data_envio }}</p>
+        <p><strong>Altura:</strong> {{ escada.altura }}m</p>
+        <p><strong>Problema:</strong> {{ escada.problema }}</p>
+
+        <p>
+            <strong>Status:</strong>
+            <span class="status {{ escada.status }}">
+                {{ escada.get_status_display }}
+            </span>
+        </p>
+
+        <div class="botoes">
+
+            {% if escada.status != 'concluida' %}
+            <a href="{% url 'concluir_escada' escada.id %}">
+                <button class="botao concluir">Concluir manutenção</button>
+            </a>
+            {% endif %}
+
+            <a href="{% url 'lista_escadas' %}">
+                <button class="botao voltar">Voltar</button>
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
