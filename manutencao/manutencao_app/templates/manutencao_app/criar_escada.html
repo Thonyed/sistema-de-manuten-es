@@ -1,4 +1,5 @@
 {% load static %}
+
 <link rel="stylesheet" href="{% static 'manutencao_app/style.css' %}">
 
 <div class="topo">
@@ -10,37 +11,24 @@
     <div class="card-form">
         <h2>Cadastrar Escada</h2>
 
-        <form method="post">
-            {% csrf_token %}
+    <form method="POST">
+        {% csrf_token %}
 
+        {% for field in form %}
             <div class="campo">
-                <label>Código:</label>
-                {{ form.codigo }}
+                {{ field.label }}
+                {{ field }}
+                {{ field.errors }}
             </div>
+        {% endfor %}
 
-            <div class="campo">
-                <label>Data de envio:</label>
-                {{ form.data_envio }}
-            </div>
+        {{ form.non_field_errors }}
 
-            <div class="campo">
-                <label>Altura (m):</label>
-                {{ form.altura }}
-            </div>
+        <button type="submit" class="botao">Salvar</button>
+    </form>
 
-            <div class="campo">
-                <label>Problema:</label>
-                <textarea placeholder="Descreva o problema da escada">{{ form.problema.value|default_if_none:'' }}</textarea>
-            </div>
+    <a href="{% url 'home' %}" class="voltar">← Voltar</a>
+</div>
 
-            <div class="campo">
-                <label>Status:</label>
-                {{ form.status }}
-            </div>
 
-            <button type="submit" class="botao">Salvar</button>
-        </form>
-
-        <a href="{% url 'home' %}" class="voltar">← Voltar</a>
-    </div>
 </div>
