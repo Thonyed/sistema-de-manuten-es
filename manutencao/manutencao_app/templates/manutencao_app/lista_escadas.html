@@ -14,20 +14,20 @@
 
     <div class="cards">
         {% for escada in escadas %}
-            <a href="{% url 'detalhe_escada' escada.id %}" class="card">
+        <a href="{% url 'detalhe_escada' escada.id %}" class="card">
 
-                <h3>ID: {{ escada.codigo }}</h3>
+            <h3>ID: {{ escada.codigo }}</h3>
 
-                <p><strong>Data:</strong> {{ escada.data_envio }}</p>
-                <p><strong>Altura:</strong> {{ escada.altura }}m</p>
+            <p><strong>Data:</strong> {{ escada.data_envio }}</p>
+            <p><strong>Altura:</strong> {{ escada.altura }}m</p>
 
-                <span class="status {{ escada.status }}">
-                    {{ escada.get_status_display }}
-                </span>
+            <span class="status {{ escada.status }}">
+                {{ escada.status }}
+            </span>
 
-            </a>
+        </a>
         {% empty %}
-            <p>Nenhuma escada cadastrada.</p>
+        <p>Nenhuma escada cadastrada.</p>
         {% endfor %}
     </div>
 

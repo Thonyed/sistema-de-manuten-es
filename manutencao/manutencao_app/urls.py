@@ -23,4 +23,6 @@ urlpatterns = [
     path('criar/', views.criar_escada, name='criar_escada'),
     path('escada/<int:id>/', views.detalhe_escada, name='detalhe_escada'),
     path('escada/<int:id>/concluir/', views.concluir_escada, name='concluir_escada'),
+    path('status/', views.status_escadas, name='status_escadas'),
+    path('status/<int:id>/', views.atualizar_status, name='atualizar_status'),
 ]

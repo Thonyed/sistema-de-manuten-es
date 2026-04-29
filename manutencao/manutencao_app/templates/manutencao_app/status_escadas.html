@@ -1,0 +1,39 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'manutencao_app/style.css' %}">
+
+<h1>Status das Escadas</h1>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Status</th>
+        <th>Alterar</th>
+    </tr>
+
+    {% for escada in escadas %}
+    <tr>
+        <td>{{ escada.codigo }}</td>
+        <td>
+            <div class="status {{ escada.status }}">
+                {{ escada.status }}
+        </td>
+
+        <td>
+            <form method="POST" action="{% url 'atualizar_status' escada.id %}">
+                {% csrf_token %}
+
+                <select name="status">
+                    <option value="pendente">Pendente</option>
+                    <option value="manutencao">Manutenção</option>
+                    <option value="concluida">Concluída</option>
+                </select>
+                </div>
+
+                <button type="submit">Salvar</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="{% url 'home' %}" class="voltar">← Voltar</a>

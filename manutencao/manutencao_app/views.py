@@ -41,3 +41,19 @@ def concluir_escada (request, id):
 
 def home(request):
     return render(request, 'manutencao_app/home.html')
+
+def status_escadas(request):
+    escadas = Escada.objects.all()
+    return render(request, 'manutencao_app/status_escadas.html', {'escadas': escadas})
+
+def atualizar_status(request, id):
+    escada = get_object_or_404(Escada, id=id)
+
+    if request.method == 'POST':
+        novo_status = request.POST.get('status')
+        escada.status = novo_status
+        escada.save()
+
+        return redirect('lista_escadas')
+
+    return redirect('lista_escadas')

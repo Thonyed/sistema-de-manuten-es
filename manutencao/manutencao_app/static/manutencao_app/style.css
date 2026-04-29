@@ -1,48 +1,89 @@
-/* Reset básico */
-
+/* =========================
+   RESET E BASE
+========================= */
 body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+}
 
-        .topo {
-            background-color: red;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
+/* =========================
+   TOPO / HOME
+========================= */
+.topo {
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
 
-        .lista {
-            text-align: center;
-            list-style: none;
-            padding: 0;
-            margin-top: 20px;
-        }
+.lista {
+    text-align: center;
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
 
-        .lista li {
-            font-size: 20px;
-            margin: 10px 0;
-        }
+.lista li {
+    font-size: 20px;
+    margin: 10px 0;
+}
 
-        .botao-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 100px;
-        }
+.botao-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
 
-        .botao {
-            padding: 20px 40px;
-            font-size: 20px;
-            border-radius: 10px;
-            transition: 0.3s;
-            cursor: pointer;
-        }
+/* =========================
+   BOTÕES
+========================= */
+.botao {
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #3b6edc;
+    color: white;
+    transition: 0.3s;
+}
 
-        .botao:hover {
-            transform: scale(1.1);
-        }
+.botao:hover {
+    transform: scale(1.05);
+    background-color: #2f5bc0;
+}
 
-        .form-container {
+.botao.concluir {
+    background-color: #2ecc71;
+}
+
+.botao.concluir:hover {
+    background-color: #27ae60;
+}
+
+/* =========================
+   LINKS / VOLTAR
+========================= */
+.voltar {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #7f8c8d;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.voltar:hover {
+    background-color: #5d6d7e;
+}
+
+/* =========================
+   FORMULÁRIOS
+========================= */
+.form-container {
     display: flex;
     justify-content: center;
     margin-top: 40px;
@@ -80,28 +121,9 @@ body {
     border: 1px solid #ccc;
 }
 
-.botao {
-    width: 100%;
-    padding: 12px;
-    background-color: #3b6edc;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.botao:hover {
-    background-color: #2f5bc0;
-}
-
-.voltar {
-    display: block;
-    text-align: center;
-    margin-top: 15px;
-    text-decoration: none;
-}
-
+/* =========================
+   CARDS (LISTA DE ESCADAS)
+========================= */
 .container-cards {
     padding: 30px;
 }
@@ -140,41 +162,9 @@ body {
     transform: scale(1.03);
 }
 
-.status {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 5px 10px;
-    border-radius: 8px;
-    font-size: 14px;
-}
-
-/* cores por status */
-.status.pendente {
-    background-color: #f1c40f;
-}
-
-.status.em_manutencao {
-    background-color: #3498db;
-    color: white;
-}
-
-.status.concluida {
-    background-color: #2ecc71;
-    color: white;
-}
-
-.voltar {
-    margin-top: 15px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    background-color: #2f6fed;
-    color: white;
-    cursor: pointer;
-    max-width: 25%;
-    justify-self: center;
-}
-
+/* =========================
+   DETALHE
+========================= */
 .container-detalhe {
     display: flex;
     justify-content: center;
@@ -201,18 +191,79 @@ body {
     gap: 10px;
 }
 
-.botao.concluir {
+/* =========================
+   TABELA (STATUS)
+========================= */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th {
+    background-color: #2c3e50;
+    color: white;
+    padding: 12px;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* =========================
+   FORM ELEMENTS (tabela)
+========================= */
+select {
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* =========================
+   STATUS (PADRÃO ÚNICO)
+========================= */
+.status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* CORES */
+.status.pendente {
+    background-color: #f1c40f;
+    color: #000;
+}
+
+.status.manutencao {
+    background-color: #e67e22;
+    color: #fff;
+}
+
+.status.concluida {
     background-color: #2ecc71;
-}
-
-.botao.concluir:hover {
-    background-color: #27ae60;
-}
-
-.botao.voltar {
-    background-color:#2f6fed;
-}
-
-.botao.voltar:hover {
-    background-color: #147092;
+    color: #fff;
 }
