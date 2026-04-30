@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block titulo %}Sistema{% endblock %}</title>
+
+    <!-- CSS GLOBAL -->
+    <link rel="stylesheet" href="{% static 'manutencao_app/style.css' %}">
+
+    <!-- CSS EXTRA (ex: home.css) -->
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+    <!-- HEADER GLOBAL
+    <header class="header">
+        <div class="logo">
+            <span>🛗</span>
+            <div>
+                <h2>ESCADA</h2>
+                <h2>SEGURA</h2>
+            </div>
+        </div> -->
+
+    </header>
+
+    <!-- CONTEÚDO DAS PÁGINAS -->
+    <main class="conteudo">
+        {% block conteudo %}
+        {% endblock %}
+    </main>
+
+</body>
+</html>

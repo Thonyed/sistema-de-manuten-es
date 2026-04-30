@@ -1,39 +1,46 @@
-{% load static %}
-<link rel="stylesheet" href="{% static 'manutencao_app/style.css' %}">
+{% extends 'manutencao_app/base.html' %}
 
-<h1>Status das Escadas</h1>
+{% block titulo %}Status das Escadas{% endblock %}
 
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Status</th>
-        <th>Alterar</th>
-    </tr>
+{% block conteudo %}
 
-    {% for escada in escadas %}
-    <tr>
-        <td>{{ escada.codigo }}</td>
-        <td>
-            <div class="status {{ escada.status }}">
-                {{ escada.status }}
-        </td>
+<div class="topo">
+    <h1>📊 Status das Escadas</h1>
+    <p>Gerencie o status</p>
+</div>
 
-        <td>
-            <form method="POST" action="{% url 'atualizar_status' escada.id %}">
-                {% csrf_token %}
+<div class="container-status">
+    <div class="tabela-wrapper">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Status</th>
+                <th>Alterar</th>
+            </tr>
 
-                <select name="status">
-                    <option value="pendente">Pendente</option>
-                    <option value="manutencao">Manutenção</option>
-                    <option value="concluida">Concluída</option>
-                </select>
-                </div>
+            {% for escada in escadas %}
+            <tr>
+                <td>{{ escada.codigo }}</td>
+                <td>
+                    <span class="status {{ escada.status }}">{{ escada.status }}</span>
+                </td>
+                <td>
+                    <form method="POST" action="{% url 'atualizar_status' escada.id %}">
+                        {% csrf_token %}
+                        <select name="status">
+                            <option value="pendente">Pendente</option>
+                            <option value="manutencao">Manutenção</option>
+                            <option value="concluida">Concluída</option>
+                        </select>
+                        <button type="submit">Salvar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 
-                <button type="submit">Salvar</button>
-            </form>
-        </td>
-    </tr>
-    {% endfor %}
-</table>
+    <a href="{% url 'home' %}" class="voltar">← Voltar</a>
+</div>
 
-<a href="{% url 'home' %}" class="voltar">← Voltar</a>
+{% endblock %}

@@ -1,5 +1,8 @@
-{% load static %}
-<link rel="stylesheet" href="{% static 'manutencao_app/style.css' %}">
+{% extends 'manutencao_app/base.html' %}
+
+{% block titulo %}Lista de Escadas{% endblock %}
+
+{% block conteudo %}
 
 <div class="topo">
     <h1>🪜 Lista de Escadas</h1>
@@ -15,16 +18,10 @@
     <div class="cards">
         {% for escada in escadas %}
         <a href="{% url 'detalhe_escada' escada.id %}" class="card">
-
             <h3>ID: {{ escada.codigo }}</h3>
-
             <p><strong>Data:</strong> {{ escada.data_envio }}</p>
             <p><strong>Altura:</strong> {{ escada.altura }}m</p>
-
-            <span class="status {{ escada.status }}">
-                {{ escada.status }}
-            </span>
-
+            <span class="status {{ escada.status }}">{{ escada.status }}</span>
         </a>
         {% empty %}
         <p>Nenhuma escada cadastrada.</p>
@@ -34,3 +31,5 @@
     <a href="{% url 'home' %}" class="voltar">← Voltar</a>
 
 </div>
+
+{% endblock %}

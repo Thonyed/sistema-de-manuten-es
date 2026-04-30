@@ -1,6 +1,8 @@
-{% load static %}
+{% extends 'manutencao_app/base.html' %}
 
-<link rel="stylesheet" href="{% static 'manutencao_app/style.css' %}">
+{% block titulo %}Nova Escada{% endblock %}
+
+{% block conteudo %}
 
 <div class="topo">
     <h1>🔧 Nova Escada</h1>
@@ -11,24 +13,24 @@
     <div class="card-form">
         <h2>Cadastrar Escada</h2>
 
-    <form method="POST">
-        {% csrf_token %}
+        <form method="POST">
+            {% csrf_token %}
 
-        {% for field in form %}
-            <div class="campo">
-                {{ field.label }}
-                {{ field }}
-                {{ field.errors }}
-            </div>
-        {% endfor %}
+            {% for field in form %}
+                <div class="campo">
+                    {{ field.label }}
+                    {{ field }}
+                    {{ field.errors }}
+                </div>
+            {% endfor %}
 
-        {{ form.non_field_errors }}
+            {{ form.non_field_errors }}
 
-        <button type="submit" class="botao">Salvar</button>
-    </form>
+            <button type="submit" class="botao">Salvar</button>
+        </form>
 
-    <a href="{% url 'home' %}" class="voltar">← Voltar</a>
+        <a href="{% url 'home' %}" class="voltar">← Voltar</a>
+    </div>
 </div>
 
-
-</div>
+{% endblock %}

@@ -1,5 +1,8 @@
-{% load static %}
-<link rel="stylesheet" href="{% static 'manutencao_app/style.css' %}">
+{% extends 'manutencao_app/base.html' %}
+
+{% block titulo %}Detalhes da Escada{% endblock %}
+
+{% block conteudo %}
 
 <div class="topo">
     <h1>🔍 Detalhes da Escada</h1>
@@ -7,7 +10,6 @@
 </div>
 
 <div class="container-detalhe">
-
     <div class="card-detalhe">
 
         <h2>{{ escada.codigo }}</h2>
@@ -18,14 +20,10 @@
 
         <p>
             <strong>Status:</strong>
-          
-            <span class="status {{ escada.status }}">
-                {{ escada.status }}
-            </span>
+            <span class="status {{ escada.status }}">{{ escada.status }}</span>
         </p>
 
         <div class="botoes">
-
             {% if escada.status != 'concluida' %}
             <a href="{% url 'concluir_escada' escada.id %}">
                 <button class="botao concluir">Concluir manutenção</button>
@@ -35,9 +33,9 @@
             <a href="{% url 'lista_escadas' %}">
                 <button class="botao voltar">Voltar</button>
             </a>
-
         </div>
 
     </div>
-
 </div>
+
+{% endblock %}
