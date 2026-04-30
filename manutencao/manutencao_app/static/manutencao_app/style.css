@@ -89,7 +89,7 @@ input[type="submit"] {
     cursor: pointer;
     transition: background 0.2s ease, transform 0.15s ease;
     background: #f00c0c;
-    color: #1a1a1a;
+    color: #ffffff;
 }
 
 .botao:hover,
@@ -142,7 +142,7 @@ button.voltar:hover {
     display: inline-block;
     padding: 10px 20px;
     background: #f00c0c;
-    color: #1a1a1a;
+    color: #ffffff;
     border-radius: 8px;
     font-size: 14px;
     font-weight: 700;
@@ -402,7 +402,7 @@ table button[type="submit"] {
     font-size: 13px;
     border-radius: 7px;
     background: #f00c0c;
-    color: #1a1a1a;
+    color: #ffffff;
     font-weight: 600;
     border: none;
     cursor: pointer;

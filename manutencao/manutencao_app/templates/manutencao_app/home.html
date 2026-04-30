@@ -9,29 +9,39 @@
 
 {% block conteudo %}
 
+<header class="topo">
+    <div class="titulo">
+        <h1>REDFOX</h1>
+        <p>Manutenção</p>
+    </div>
+</header>
+
 <div class="home-container">
 
     <!-- LADO ESQUERDO -->
     <div class="home-left">
 
-        <div class="logo">
+        <!-- <div class="logo">
             <span>🛗</span>
             <div>
                 <h2>ESCADA</h2>
                 <h2>SEGURA</h2>
             </div>
-        </div>
+        </div> -->
 
-        <div class="hero">
-            <h1>Bem-vindo!</h1>
-            <p>Sistema de Manutenção de Escadas</p>
-            <div class="linha"></div>
-        </div>
+       <section class="hero">
 
-        <div class="imagem">
-            <img src="{% static 'manutencao_app/img/escada.png' %}" alt="Escada">
-        </div>
+    <div class="hero-texto">
+        <h1>Bem-vindo!</h1>
+        <p>Sistema de Manutenção de Escadas</p>
+        <div class="linha"></div>
+    </div>
 
+    <div class="hero-img">
+        <img src="{% static 'manutencao_app/img/equipe.jpeg' %}">
+    </div>
+
+</section>
         <div class="cards-home">
 
             <div class="card-home">
@@ -64,34 +74,6 @@
             <span>🛡</span>
             <strong>Segurança em primeiro lugar.</strong><br>
             Manutenções realizadas por profissionais qualificados.
-        </div>
-
-    </div>
-
-    <!-- LADO DIREITO -->
-    <div class="home-right">
-
-        <div class="top-bar">
-            Agendar manutenção
-        </div>
-
-        <div class="form-area">
-
-            <label>Modelo da escada</label>
-            <select>
-                <option>Selecione o modelo</option>
-            </select>
-
-            <label>Motivo da manutenção</label>
-            <select>
-                <option>Selecione o motivo</option>
-            </select>
-
-            <label>Data desejada</label>
-            <input type="date">
-
-            <button class="botao-grande">CONTINUAR →</button>
-
         </div>
 
     </div>
