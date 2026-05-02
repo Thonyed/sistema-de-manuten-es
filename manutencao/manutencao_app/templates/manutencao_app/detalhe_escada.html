@@ -1,0 +1,41 @@
+{% extends 'manutencao_app/base.html' %}
+
+{% block titulo %}Detalhes da Escada{% endblock %}
+
+{% block conteudo %}
+
+<div class="topo">
+    <h1>🔍 Detalhes da Escada</h1>
+    <p>Informações da manutenção</p>
+</div>
+
+<div class="container-detalhe">
+    <div class="card-detalhe">
+
+        <h2>{{ escada.codigo }}</h2>
+
+        <p><strong>Data:</strong> {{ escada.data_envio }}</p>
+        <p><strong>Altura:</strong> {{ escada.altura }}m</p>
+        <p><strong>Problema:</strong> {{ escada.problema }}</p>
+
+        <p>
+            <strong>Status:</strong>
+            <span class="status {{ escada.status }}">{{ escada.status }}</span>
+        </p>
+
+        <div class="botoes">
+            {% if escada.status != 'concluida' %}
+            <a href="{% url 'concluir_escada' escada.id %}">
+                <button class="botao concluir">Concluir manutenção</button>
+            </a>
+            {% endif %}
+
+            <a href="{% url 'lista_escadas' %}">
+                <button class="botao voltar">Voltar</button>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'manutencao_app/base.html' %}
+{% load static %}
+
+{% block titulo %}Lista de Escadas{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'manutencao_app/lista_escadas.css' %}">
+{% endblock %}
+
+{% block conteudo %}
+
+<div class="topo">
+    <h1>🪜 Lista de Escadas</h1>
+    <p>Acompanhe todas as manutenções</p>
+</div>
+
+<div class="container-cards">
+
+    <div class="barra-acoes">
+        <a href="{% url 'criar_escada' %}" class="botao-nova">+ Nova Escada</a>
+        <a href="{% url 'home' %}" class="voltar">← Voltar</a>
+    </div>
+
+    <div class="cards">
+        {% for escada in escadas %}
+        <a href="{% url 'detalhe_escada' escada.id %}" class="card">
+            <h3>ID: {{ escada.codigo }}</h3>
+            <p><strong>Data:</strong> {{ escada.data_envio }}</p>
+            <p><strong>Altura:</strong> {{ escada.altura }}m</p>
+            <span class="status {{ escada.status }}">{{ escada.status }}</span>
+        </a>
+        {% empty %}
+        <p>Nenhuma escada cadastrada.</p>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}
