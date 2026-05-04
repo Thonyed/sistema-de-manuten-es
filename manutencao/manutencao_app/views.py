@@ -3,7 +3,7 @@ from django.db.models import Q
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.utils.http import url_has_allowed_host_and_scheme
-
+from django.contrib import messages
 from .models import Escada
 from .forms import EscadaForm
 
@@ -26,14 +26,11 @@ def login_view(request):
         if user:
             login(request, user)
 
-            # 🔥 pega next corretamente
             next_url = request.POST.get('next') or request.GET.get('next')
 
-            # 🔥 evita loop
             if next_url == request.path:
                 next_url = None
 
-            # 🔥 valida segurança
             if next_url and url_has_allowed_host_and_scheme(
                 url=next_url,
                 allowed_hosts={request.get_host()}
@@ -41,6 +38,9 @@ def login_view(request):
                 return redirect(next_url)
 
             return redirect('home')
+
+        else:
+            messages.error(request, "Usuário ou senha inválidos")
 
     return render(request, 'manutencao_app/login.html')
 
