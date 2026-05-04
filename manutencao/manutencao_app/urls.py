@@ -11,4 +11,6 @@ urlpatterns = [
     path('status/', views.status_escadas, name='status_escadas'),
     path('escadas/<int:id>/concluir/', views.concluir_escada, name='concluir_escada'),
     path('api/escadas/', views.api_lista_escadas, name='api_lista_escadas'),
+    path('escadas/<int:id>/deletar/', views.deletar_escada, name='deletar_escada'),
+    path('logout/', views.logout_view, name='logout'),
 ]

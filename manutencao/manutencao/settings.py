@@ -122,3 +122,6 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.ngrok-free.dev"
 ]
 
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'

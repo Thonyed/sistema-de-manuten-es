@@ -218,3 +218,12 @@ body {
     border-radius: 16px 16px 0 0;
     margin: -32px -28px 20px;
 }
+
+.botao.deletar {
+    background: #dc3545;
+    color: white;
+}
+
+.botao.deletar:hover {
+    background: #a71d2a;
+}
