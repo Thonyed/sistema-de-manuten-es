@@ -20,14 +20,37 @@
         <a href="{% url 'criar_escada' %}" class="botao-nova">+ Nova Escada</a>
         <a href="{% url 'home' %}" class="voltar">← Voltar</a>
     </div>
+    <div class="barra-filtro">
+        <form method="get" class="filtro">
+
+            <input type="text" name="q" placeholder="Buscar por NS ou modelo">
+
+            <select name="modelo">
+                <option value="">Todos os modelos</option>
+                <option value="escada_es-ca_fort_tesoura_pequena">Tesoura pequena</option>
+                <option value="escada_es-ca_fort_6m_extensiva">6m Extensiva</option>
+            </select>
+
+            <input type="date" name="data" value="{{ request.GET.data }}">
+
+            <div class="acoes-filtro">
+                <button type="submit" class="btn-filtrar">Filtrar</button>
+
+                <button type="submit">
+                    <a href="{% url 'lista_escadas' %}" class="btn-limpar">Limpar filtro</a>
+                </button>
+            </div>
+        </form>
+    </div>
+
 
     <div class="cards">
         {% for escada in escadas %}
         <a href="{% url 'detalhe_escada' escada.id %}" class="card">
-            <h3>ID: {{ escada.codigo }}</h3>
+            <h3>NS: {{ escada.codigo }}</h3>
             <p><strong>Data:</strong> {{ escada.data_envio }}</p>
-            <p><strong>Altura:</strong> {{ escada.altura }}m</p>
-            <span class="status {{ escada.status }}">{{ escada.status }}</span>
+            <p><strong>Modelo:</strong> {{ escada.get_modelo_display }}</p>
+            <span class="status {{ escada.status }}">{{ escada.get_status_display }}</span>
         </a>
         {% empty %}
         <p>Nenhuma escada cadastrada.</p>

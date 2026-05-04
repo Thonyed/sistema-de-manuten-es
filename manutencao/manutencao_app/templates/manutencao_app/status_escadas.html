@@ -19,8 +19,9 @@
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>NS</th>
                     <th>Status</th>
+                    <th>Data</th>
                     <th>Alterar</th>
                 </tr>
             </thead>
@@ -29,7 +30,10 @@
                 <tr>
                     <td>{{ escada.codigo }}</td>
                     <td>
-                        <span class="status {{ escada.status }}">{{ escada.status }}</span>
+                        <span class="status {{ escada.status }}">{{ escada.get_status_display }}</span>
+                    </td>
+                    <td>
+                        {{escada.data_envio}}
                     </td>
                     <td>
                         <form method="POST" action="{% url 'atualizar_status' escada.id %}">

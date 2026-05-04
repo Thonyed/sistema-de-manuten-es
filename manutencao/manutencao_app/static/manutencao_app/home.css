@@ -70,8 +70,7 @@ body {
 
 /* TEXTO */
 .hero-texto {
-    flex: 0.9;
-    margin-top: -300px;
+    flex: 1;
 }
 .textosub {
     margin-top: 50px;   
@@ -138,6 +137,7 @@ body {
     display: flex;
     gap: 20px;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .card-home {
@@ -190,15 +190,22 @@ body {
 
     .hero {
         flex-direction: column;
+        align-items: center;
         text-align: center;
+        gap: 30px;
     }
 
-    .hero-img img {
-        max-width: 100%;
+    .hero-container {
+        padding: 20px;
     }
 
-    .cards-home {
-        flex-direction: column;
+    .hero-texto {
+        margin-top: 0; /* garantir que não herda nada estranho */
+    }
+
+    .textosub {
+        margin-top: 20px;
     }
 }
+
 

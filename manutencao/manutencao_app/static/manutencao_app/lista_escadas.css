@@ -193,9 +193,111 @@ a.voltar:hover { color: #e30613; }
     align-self: flex-start;
 }
 
-.status.pendente    { background: #fff3cd; color: #856404; border: 1px solid #ffc10740; }
-.status.manutencao  { background: #cfe2ff; color: #084298; border: 1px solid #0d6efd40; }
-.status.concluida   { background: #d1e7dd; color: #0a3622; border: 1px solid #19875440; }
+
+.status.em_manutencao { 
+    background: #cfe2ff; 
+    color: #084298; 
+}
+
+.status.pendente { 
+    background: #fff3cd; 
+    color: #856404; 
+}
+
+.status.concluida { 
+    background: #d1e7dd; 
+    color: #0a3622; 
+}
+
+.filtro {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filtro input,
+.filtro select,
+.filtro button {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* ── BARRA DE FILTRO ── */
+.barra-filtro {
+    background: white;
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    border: 1px solid #eee;
+}
+
+/* FORM */
+.filtro {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* INPUTS */
+.filtro input,
+.filtro select {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s;
+}
+
+/* FOCUS */
+.filtro input:focus,
+.filtro select:focus {
+    border-color: #e30613;
+    box-shadow: 0 0 0 2px rgba(227,6,19,0.15);
+}
+
+/* AÇÕES (botões) */
+.acoes-filtro {
+    display: flex;
+    gap: 10px;
+}
+
+/* BOTÃO FILTRAR */
+.btn-filtrar {
+    background: #e30613;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-filtrar:hover {
+    background: #b80010;
+    transform: translateY(-1px);
+}
+
+/* BOTÃO LIMPAR */
+.btn-limpar {
+    background: #f1f1f1;
+    color: #333;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.btn-limpar:hover {
+    background: #ddd;
+}
+
 
 /* ── EMPTY STATE ── */
 .cards p {

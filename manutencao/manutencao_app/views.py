@@ -5,10 +5,30 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import EscadaSerializer 
 from django.shortcuts import render, redirect, get_object_or_404
+from django.db.models import Q
 
 
 def lista_escadas(request):
     escadas = Escada.objects.all()
+
+    busca = request.GET.get('q')
+    modelo = request.GET.get('modelo')
+    data = request.GET.get('data')
+
+    # 🔍 Busca geral (NS ou modelo)
+    if busca:
+        escadas = escadas.filter(
+            Q(codigo__icontains=busca) |
+            Q(modelo__icontains=busca)
+        )
+
+    # 📦 Filtro por modelo
+    if modelo:
+        escadas = escadas.filter(modelo=modelo)
+
+    # 📅 Filtro por data
+    if data:
+        escadas = escadas.filter(data_envio=data)
     return render(request, 'manutencao_app/lista_escadas.html', {'escadas': escadas})
 
 
@@ -43,7 +63,7 @@ def home(request):
     return render(request, 'manutencao_app/home.html')
 
 def status_escadas(request):
-    escadas = Escada.objects.all()
+    escadas = Escada.objects.exclude(status='concluida')
     return render(request, 'manutencao_app/status_escadas.html', {'escadas': escadas})
 
 def atualizar_status(request, id):

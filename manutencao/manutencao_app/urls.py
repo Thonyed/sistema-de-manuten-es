@@ -9,5 +9,6 @@ urlpatterns = [
     path('escadas/<int:id>/', views.detalhe_escada, name='detalhe_escada'),
     path('escadas/<int:id>/status/', views.atualizar_status, name='atualizar_status'),
     path('status/', views.status_escadas, name='status_escadas'),
+    path('escadas/<int:id>/concluir/', views.concluir_escada, name='concluir_escada'),
     path('api/escadas/', views.api_lista_escadas, name='api_lista_escadas'),
 ]

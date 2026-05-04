@@ -122,9 +122,21 @@ table tbody tr:hover td { background: #fef8f8; }
     letter-spacing: 0.7px;
 }
 
-.status.pendente    { background: #fff3cd; color: #856404; border: 1px solid #ffc10760; }
-.status.manutencao  { background: #cfe2ff; color: #084298; border: 1px solid #0d6efd60; }
-.status.concluida   { background: #d1e7dd; color: #0a3622; border: 1px solid #19875460; }
+.status.em_manutencao { 
+    background: #cfe2ff; 
+    color: #084298; 
+}
+
+.status.pendente { 
+    background: #fff3cd; 
+    color: #856404; 
+}
+
+.status.concluida { 
+    background: #d1e7dd; 
+    color: #0a3622; 
+}
+
 
 /* ── SELECT + BOTÃO NA TABELA ── */
 table form {
