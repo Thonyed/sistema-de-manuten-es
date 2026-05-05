@@ -1,6 +1,5 @@
 *,
-*::before,
-*::after {
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -28,95 +27,79 @@ body {
     height: 100%;
     top: 0;
     left: 0;
-
     background:
         linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)),
         url('/static/manutencao_app/img/redfox.jpeg') no-repeat center center;
-
-    background-size: cover; /* 🔥 ISSO resolve 80% dos casos */
-
+    background-size: cover;
     filter: blur(8px);
     transform: scale(1.1);
     z-index: -1;
 }
 
+/* ─── CARD ─────────────────────────────────────── */
 .card {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.92);
     border: 1.5px solid #000000;
-    border-radius: 28px;
-    padding: 2.5rem 2.8rem;
+    border-radius: 24px;
+    padding: 2.2rem 2.4rem;
     width: 100%;
-    max-width: 400px;
-    box-shadow: 0 0 0 6px #ff0000;
+    max-width: 380px;
+    box-shadow: 0 0 0 5px #cc0000;
     backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.85);
 }
 
+/* ─── LOGO ─────────────────────────────────────── */
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 2rem;
+    margin-bottom: 1.4rem;
+    flex-wrap: wrap;
+    margin-left: 5px;
+    gap: 20px;
 }
 
-.logo-dot {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: #ff0000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.logo-img {
+    height: 42px;
+    width: auto;
+    border-radius: 8px;
 }
-
-.logo-dot svg {
-    width: 16px;
-    height: 16px;
-    fill: #fff;
-}
-
-.logo-text {
-    font-family: Arial, sans-serif;
-    font-size: 20px;
-    color: #ff0000;
-    font-weight: 500;
-}
-
+/* ─── TÍTULOS ───────────────────────────────────── */
 h2 {
     font-family: Arial, sans-serif;
-    font-size: 26px;
-    font-weight: 500;
-    color: #000000;
-    margin-bottom: 6px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #1a0000;
+    margin-bottom: 2px;
 }
 
 .subtitle {
-    font-size: 13px;
-    color: #000000;
-    margin-bottom: 2rem;
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 1.4rem;
 }
 
+/* ─── CAMPOS ────────────────────────────────────── */
 .field {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
 }
 
 .field label {
     display: block;
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 11px;
+    font-weight: 600;
     color: #a32d2d;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
 }
 
 .field input {
     width: 100%;
-    padding: 11px 14px;
-    border: 1px solid #000000;
-    border-radius: 14px;
-    font-size: 14px;
-    color: #501313;
+    padding: 10px 14px;
+    border: 1.5px solid #ddd;        /* era #000 — agora mais suave */
+    border-radius: 12px;
+    font-size: 13px;
+    color: #1a0000;
     font-family: 'DM Sans', sans-serif;
     outline: none;
     background: #fff;
@@ -124,99 +107,64 @@ h2 {
 }
 
 .field input::placeholder {
-    color: #000000;
+    color: #bbb;                      /* era #000 — agora mais suave */
 }
 
 .field input:focus {
-    border-color: #e24b4a;
-    box-shadow: 0 0 0 3px #fcebeb;
+    border-color: #cc0000;
+    box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.1);
 }
 
-.row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.check-wrap {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    cursor: pointer;
-}
+/* ─── WRAPPER DA SENHA (mostrar/ocultar) ─────────── */
 .input-wrapper {
-  position: relative;
+    position: relative;
 }
 
 .toggle-btn {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  font-size: 12px;
-  color: #e24b4a;
-  cursor: pointer;
-}
-
-.check-wrap input[type="checkbox"] {
-    accent-color: #e24b4a;
-    width: 15px;
-    height: 15px;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 11px;
+    font-weight: 600;
+    color: #cc0000;
     cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
 }
 
-.check-wrap span {
-    font-size: 13px;
-    color: #791f1f;
-}
-
-.forgot {
-    font-size: 13px;
-    color: #e24b4a;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s;
-}
-
-.forgot:hover {
-    color: #ff0000;
-}
-
+/* ─── BOTÃO ENTRAR ──────────────────────────────── */
 .btn {
-    width: 100% !important;
-    padding: 13px !important;
-    background: linear-gradient(0deg, rgba(247, 247, 247, 0.767) 0%, rgb(223, 200, 200) 100%);
-    color: #000000 !important;
-    font-size: 15px !important;
-    font-weight: 500 !important;
-    font-family: 'DM Sans', sans-serif !important;
-    border: none !important;
-    border-radius: 14px !important;
+    width: 100%;
+    padding: 12px;
+    background: #cc0000;              /* era gradiente claro — agora vermelho sólido */
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    border: none;
+    border-radius: 12px;
     cursor: pointer;
-    letter-spacing: 0.02em;
-    display: block;
-    text-align: center;
-    transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+    letter-spacing: 0.03em;
+    margin-top: 0.4rem;
+    transition: background 0.2s, transform 0.1s;
 }
 
 .btn:hover {
-    background: #ff0000 !important;
-    box-shadow: 0 4px 16px #f09595 !important;
-    transform: none !important;
+    background: #aa0000;
 }
 
 .btn:active {
-    transform: scale(0.98) !important;
+    transform: scale(0.98);
 }
 
+/* ─── DIVISOR ───────────────────────────────────── */
 .divider {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin: 1.4rem 0;
+    gap: 8px;
+    margin: 1.2rem 0 0;
 }
 
 .divider::before,
@@ -224,70 +172,45 @@ h2 {
     content: '';
     flex: 1;
     height: 1px;
-    background: #f7c1c1;
+    background: #f0caca;
 }
 
 .divider span {
-    font-size: 12px;
-    color: #ff0000;
+    font-size: 11px;
+    color: #cc0000;
+    letter-spacing: 0.04em;
 }
 
-.social-btn {
-    width: 100% !important;
-    padding: 11px !important;
-    background: #fff !important;
-    border: 1px solid #f7c1c1 !important;
-    border-radius: 14px !important;
-    font-size: 14px !important;
-    font-family: 'DM Sans', sans-serif !important;
-    color: #ff0000 !important;
-    cursor: pointer;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-    transition: border 0.2s, background 0.2s;
-}
-
-.social-btn:hover {
-    background: #fcebeb !important;
-    border-color: #ff0000 !important;
-    transform: none !important;
-}
-
-.social-icon {
-    width: 18px;
-    height: 18px;
-}
-
+/* ─── FOOTER "fale com o admin" ─────────────────── */
 .footer {
-    margin-top: 1.4rem;
+    margin-top: 1rem;
     text-align: center;
-    font-size: 13px;
-    color: #a32d2d;
+    font-size: 12px;
+    color: #999;
 }
 
 .footer a {
-    color: #e24b4a;
-    font-weight: 500;
+    color: #cc0000;
+    font-weight: 600;
     text-decoration: none;
     transition: color 0.2s;
 }
 
 .footer a:hover {
-    color: #ff0000;
+    color: #aa0000;
 }
 
+/* ─── MENSAGEM DE ERRO ──────────────────────────── */
 .alert-error {
     width: 100%;
-    background: #ff0000;
-    color: #fff;
+    background: #fff0f0;
+    color: #a32d2d;
+    border: 1px solid #f7c1c1;
+    border-left: 4px solid #cc0000;
     padding: 10px 14px;
     border-radius: 10px;
     font-size: 13px;
     font-weight: 500;
-    text-align: center;
     margin-bottom: 1rem;
     opacity: 1;
-    border-left: 4px solid #a32d2d;
 }
